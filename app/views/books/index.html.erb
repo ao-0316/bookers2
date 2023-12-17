@@ -24,11 +24,23 @@
 
 <h1>User info</h1>
 
+<% if current_user.image.attached? %>
+    <%= image_tag current_user.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
 
 
-<%=current_user.name%>
+name <%=current_user.name%>
 
 <%=current_user.introduction%>
+
+<%=link_to edit_user_path(current_user.id) do %>
+<i class="fas fa-user-cog"></i>
+<% end %>
+
+
+
 
 
 
