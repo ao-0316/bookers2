@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   
   
     def after_sign_in_path_for(resource)
-        homes_about_path
-      end
+        books_path
+    end
   
   
   
