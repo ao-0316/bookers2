@@ -16,38 +16,32 @@
   
   <body>
     <header>
-      
-      <li>
-        <%=link_to "Bookers",root_path %>
-        </li>
-      
-      
-    <% if user_signed_in? %>
-   
-        <li>
-        <%=link_to "User",users_show_path %>
-        </li>
- 
-        <li>
-        <%= link_to '投稿フォーム', books_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      <li>
-      <%= link_to 'About', homes_about_path %>
-      </li>
-    <% end %>
+          <%=link_to "Bookers",root_path %>
+      <% if user_signed_in? %>
+          <%=link_to "User",users_show_path %>
+          <%= link_to '投稿フォーム', books_path %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+          <%= link_to "新規登録", new_user_registration_path %>
+          <%= link_to "ログイン", new_user_session_path %>
+          <%= link_to 'About', homes_about_path %>
+      <% end %>
   </header>
     <%= yield %>
-  </body>
   
-  <footer>CopyRight Infratop.inc</footer>
+  
+  
+  
+  
+  
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class"mx-auto">
+            <p>CopyRight Infratop.inc</p>        
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
