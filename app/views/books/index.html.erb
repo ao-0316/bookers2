@@ -1,5 +1,8 @@
 <h1>Books</h1>
 
+<p>Title</p>
+<p>Opinion</p>
+
 <% @books.each do |book| %>
 
   <% if book.image.attached? %>
@@ -10,13 +13,12 @@
 
  <%=link_to book.user.name,users_show_path(book.user.id) %>
  
- <%=link_to book.title,books_path(book.id) %>
+ <%= book.title %>
  
  <%= book.body %>
  
- <%= link_to "Edit",edit_book_path(book.id) %>
  
- <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+ 
 
 <% end %>
 

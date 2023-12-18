@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   
   get 'users/show'
   get 'users/:id/edit' =>'users#edit', as: 'edit_user'
+   get 'users/update'
   
   
-  
+ 
   
   resources :books, only: [:new, :create, :index, :show, :edit, :destroy, :update]
   
