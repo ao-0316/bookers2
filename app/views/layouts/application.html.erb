@@ -18,7 +18,7 @@
     <header>
           <%=link_to "Bookers",root_path %>
       <% if user_signed_in? %>
-          <%=link_to "User",users_show_path %>
+          <%=link_to "User",users_path %>
           <%= link_to '投稿フォーム', books_path %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% else %>

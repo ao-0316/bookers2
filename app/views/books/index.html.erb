@@ -1,3 +1,6 @@
+flash[:notice]
+
+
 <h1>Books</h1>
 
 <p>Title</p>
@@ -11,9 +14,9 @@
     <%= image_tag 'no_image', size: "200x200" %>
   <% end %>
 
- <%=link_to book.user.name,users_show_path(book.user.id) %>
+
  
- <%= book.title %>
+ <%= link_to book.title, book_path(book.id) %>
  
  <%= book.body %>
  
