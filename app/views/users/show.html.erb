@@ -1,7 +1,7 @@
 
 <h1>User info</h1>
 
-<% if current_user.image.attached? %>
+  <% if current_user.image.attached? %>
     <%= image_tag current_user.image, size: "200x200" %>
   <% else %>
     <%= image_tag 'no_image', size: "200x200" %>
@@ -16,14 +16,6 @@ name <%=current_user.name%>
 <i class="fas fa-user-cog"></i>
 <% end %>
 
-
-
-
-
-
-
-
-
 <%= form_with model: @book do |f| %>
 
 
@@ -35,3 +27,20 @@ name <%=current_user.name%>
   <%= f.text_area :body %>
   <%= f.submit 'Create Book' %>
 <% end %>
+
+
+
+
+
+<h1>Books</h1>
+
+<p>Title</p>
+<p>Opinion</p>
+
+<% if current_user.image.attached? %>
+    <%= image_tag current_user.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>  
+  
+  
