@@ -1,3 +1,6 @@
+<%= flash[:notice] %>
+
+
 <h1>User info</h1>
 
 <% if current_user.image.attached? %>
@@ -29,6 +32,8 @@ name <%=current_user.name%>
 <% end %>
 
 
+<% @users.each do |user| %>
+
 <h1>Users</h1>
 
 <p>image</p>
@@ -41,3 +46,6 @@ name <%=current_user.name%>
   <% end %>
   
   <%=current_user.name%>
+
+<%= link_to "Show", user_path(user.id) %>
+<% end %>

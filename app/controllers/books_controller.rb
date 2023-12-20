@@ -2,11 +2,11 @@ class BooksController < ApplicationController
   
   
   def create
-    flash[:notice] = "投稿が成功しました"
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-      redirect_to books_path
+      flash[:notice] = "You have updated book successfully"
+      redirect_to book_path(@book)
     else
       @books = Book.all
       render :index  
@@ -22,8 +22,8 @@ class BooksController < ApplicationController
   
 
   def show
-    @book = Book.new
-    @books = Book.all
+    @newbook = Book.new
+    @book = Book.find(params[:id])
   end
   
   def edit

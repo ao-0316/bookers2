@@ -1,29 +1,4 @@
-flash[:notice]
-
-
-<h1>Books</h1>
-
-<p>Title</p>
-<p>Opinion</p>
-
-<% @books.each do |book| %>
-
-  <% if book.image.attached? %>
-    <%= image_tag book.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
-
-
- 
- <%= link_to book.title, book_path(book.id) %>
- 
- <%= book.body %>
- 
- 
- 
-
-<% end %>
+<%= flash[:notice] %>
 
 
 
@@ -64,5 +39,29 @@ name <%=current_user.name%>
       <li><%= message %></li>
     <% end %>
   </ul>
+<% end %>
+
+<h1>Books</h1>
+
+<p>Title</p>
+<p>Opinion</p>
+
+<% @books.each do |book| %>
+
+  <% if book.image.attached? %>
+    <%= image_tag book.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+
+
+ 
+ <%= link_to book.title, book_path(book.id) %>
+ 
+ <%= book.body %>
+ 
+ 
+ 
+
 <% end %>
 
