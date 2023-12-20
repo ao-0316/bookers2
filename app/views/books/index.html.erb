@@ -1,67 +1,77 @@
 <%= flash[:notice] %>
 
 
-
-<h1>User info</h1>
-
-<% if current_user.image.attached? %>
-    <%= image_tag current_user.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
-
-
-name <%=current_user.name%>
-
-<%=current_user.introduction%>
-
-<%=link_to edit_user_path(current_user.id) do %>
-<i class="fas fa-user-cog"></i>
-<% end %>
-
-
-
-
-<%= form_with model: @book do |f| %>
-
-  <h1>New book</h1>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
-
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this obj from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<h1>Books</h1>
-
-<p>Title</p>
-<p>Opinion</p>
-
-<% @books.each do |book| %>
-
-  <% if book.image.attached? %>
-    <%= image_tag book.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
-
-
- 
- <%= link_to book.title, book_path(book.id) %>
- 
- <%= book.body %>
- 
- 
- 
-
-<% end %>
-
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h1>User info</h1>
+        <% if current_user.image.attached? %>
+          <%= image_tag current_user.image, size: "200x200" %>
+        <% else %>
+           <%= image_tag 'no_image', size: "200x200" %>
+        <% end %>
+        <table class="table">
+        <th>name</th>
+        <th><%=current_user.name%></th>
+        <th>introduction</th>
+        <th><%=current_user.introduction%></th>          
+        </table>
+        <div class="row">
+          <%=link_to edit_user_path(current_user.id) do %>
+          <i class="fas fa-user-cog"></i>
+          <% end %>
+                 
+                  
+                  
+                  
+                  
+                  <%= form_with model: @book do |f| %>
+                  
+                    <h1>New book</h1>
+                    <h4>Title</h4>
+                    <%= f.text_field :title %>
+                    <h4>Opinion</h4>
+                    <%= f.text_area :body %>
+                    <%= f.submit 'Create Book' %>
+                  <% end %>
+                  
+                  <% if @book.errors.any? %>
+                    <%= @book.errors.count %>errors prohibited this obj from being saved:
+                    <ul>
+                      <% @book.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  <% end %>
+        </div>
+                  
+                  
+        <div class="coi-md-8 offset-md-1">         
+          <h1>Books</h1>
+            
+                  
+                  <p>Title</p>
+                  <p>Opinion</p>
+                  
+                  
+                  
+                  <% @books.each do |book| %>
+                  
+                    <% if book.image.attached? %>
+                      <%= image_tag book.image, size: "200x200" %>
+                    <% else %>
+                      <%= image_tag 'no_image', size: "200x200" %>
+                    <% end %>
+                     <%= link_to book.title, book_path(book.id) %>
+                     <%= book.body %>
+                   <% end %>
+            
+            
+            
+                  
+        </div>            
+      </div>            
+    </div>              
+  </div>
+</main>

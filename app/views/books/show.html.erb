@@ -26,6 +26,17 @@ introduction <%= @book.user.introduction %>
 
 
 
+
+
+<%= @book.each do |book| %>
+
+
+<h1>Book detail</h1>
+
+<%= @book.user.image %>
+
+<%= @book.user.name %>
+
 <% if @book.user == current_user %>
     <%= link_to "Edit",edit_book_path(@book) %>
   <% end %>
@@ -34,4 +45,4 @@ introduction <%= @book.user.introduction %>
     <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
   <% end %>
   
-  
+<% end %>  
