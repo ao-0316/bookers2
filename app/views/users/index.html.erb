@@ -3,8 +3,8 @@
 
 <h1>User info</h1>
 
-<% if current_user.image.attached? %>
-    <%= image_tag current_user.image, size: "200x200" %>
+<% if current_user.profile_image.attached? %>
+    <%= image_tag current_user.profile_image, size: "200x200" %>
   <% else %>
     <%= image_tag 'no_image', size: "200x200" %>
   <% end %>
@@ -37,15 +37,16 @@ name <%=current_user.name%>
 <h1>Users</h1>
 
 <p>image</p>
+
+<% if user.profile_image.attached? %>
+<%= image_tag user.profile_image, size: "200x200" %>
+<% else %>
+<%= image_tag 'no_image', size: "200x200" %>
+<% end %>
+
 <p>name</p>
 
-<% if current_user.image.attached? %>
-    <%= image_tag current_user.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
-  
-  <%=current_user.name%>
+<%= user.name %>
 
 <%= link_to "Show", user_path(user.id) %>
 <% end %>

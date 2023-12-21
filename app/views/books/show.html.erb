@@ -1,5 +1,5 @@
 
-<%= @book.user.image %>
+<%= image_tag @user.get_profile_image(100, 100) %>
 name<%= @book.user.name %>
 introduction <%= @book.user.introduction %> 
 <%=link_to edit_user_path(current_user.id) do %>
@@ -14,7 +14,7 @@ introduction <%= @book.user.introduction %>
 
 
 
-<%= form_with model: @book do |f| %>
+<%= form_with model: @newbook do |f| %>
 
   <h1>New book</h1>
   <h4>Title</h4>
@@ -28,14 +28,16 @@ introduction <%= @book.user.introduction %>
 
 
 
-<%= @book.each do |book| %>
-
 
 <h1>Book detail</h1>
 
-<%= @book.user.image %>
+<%= image_tag @book.user.get_profile_image(100, 100) %>
 
-<%= @book.user.name %>
+<%= @user.name %>
+
+<%= link_to @book.title, book_path(@book.id) %>
+
+<%= @book.body %>
 
 <% if @book.user == current_user %>
     <%= link_to "Edit",edit_book_path(@book) %>
@@ -45,4 +47,3 @@ introduction <%= @book.user.introduction %>
     <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
   <% end %>
   
-<% end %>  
