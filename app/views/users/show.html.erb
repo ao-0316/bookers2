@@ -22,7 +22,7 @@ introduction <%= @user.introduction %>
 
 
 
-
+<% @books.each do |book|%>
 
 <h1>Books</h1>
 
@@ -30,3 +30,10 @@ introduction <%= @user.introduction %>
 <p>Opinion</p>
 
 
+<%= image_tag book.user.get_profile_image(100, 100) %>
+
+<%= link_to book.title, book_path(book.id) %>
+
+<%= book.body %>
+
+<% end %>
