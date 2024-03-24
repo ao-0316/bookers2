@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-  
+  is_matching_login_user
   @user = User.find(params[:id])
   if  @user = current_user
      render :edit
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
 
   def update
-
+　is_matching_login_user
       @user = User.find(params[:id])
   if  @user.update(user_params)
       flash[:notice] = "You have updated book successfully."

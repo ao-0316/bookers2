@@ -13,11 +13,6 @@ class ApplicationController < ActionController::Base
       root_path
     end
 
-
-
-
-
-
   private
 
     def configure_permitted_parameters
