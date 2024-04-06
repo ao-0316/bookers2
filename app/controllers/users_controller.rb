@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   end
   end
 
-
   def update
 　is_matching_login_user
       @user = User.find(params[:id])
@@ -36,8 +35,7 @@ class UsersController < ApplicationController
   end
   end
 
-
-  private
+private
 
   def user_params
     params.require(:user).permit(:name, :profile_image,:introduction)
